@@ -1,0 +1,3 @@
+b18f4a15551f6d733e0ae1f877638037965b5ad5 - sonarqube token
+PwvXS7xpi00SSJ8kgxQqTjHu - slack token
+vprofile-n3d2043 - member id 

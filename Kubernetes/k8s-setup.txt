@@ -1,0 +1,44 @@
+sudo su
+apt-get update
+apt-get install apt-transport-https
+
+
+apt install docker.io -y
+docker --version
+systemctl start docker
+systemctl enable docker
+
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add 
+
+
+nano /etc/apt/sources.list.d/kubernetes.list
+
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+
+
+apt-get update
+
+apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+
+
+BOOTSTRAPPING THE MASTER NODE (IN MASTER)
+
+kubeadm init
+ 
+
+COPY THE COMMAND TO RUN IN NODES & SAVE IN NOTEPAD
+
+mkdir -p $HOME/.kube
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+
+CONFIGURE WORKER NODES (IN NODES)
+
+COPY LONG CODE PROVIDED MY MASTER IN NODE NOW LIKE CODE GIVEN BELOW
+
+kubeadm join 172.31.21.109:6443 --token anzqg9.lcpxhlrknio5ifix --discovery-token-ca-cert-hash sha256:4202c752bdb90757a82c932a27944926569bd38962f2343d7a1f73dcb5024414
+
+GO TO MASTER AND RUN THIS COMMAND
+kubectl get nodes
