@@ -1,2 +1,1 @@
-this is a greeting branch
-
+This is a git branch containing files for learning git.
