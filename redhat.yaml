@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: redhat
+spec:
+   containers:
+     - name: redhat-yaml-cont
+       image: redhat/ubi8:latest
+       command: ["/bin/sleep", "3600d"]
+   restartPolicy: Always

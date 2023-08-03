@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: centos
+spec:
+   containers:
+     - name: centos-yaml-cont
+       image: centos:latest
+       command: ["/bin/sleep", "3600d"]
+   restartPolicy: Always
