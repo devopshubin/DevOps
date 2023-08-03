@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs
+ 
+spec:
+   replicas: 2
+   strategy:
+     type: Recreate
+   selector:
+     matchLabels:
+       app: nodejs
+   template:
+     metadata:
+       labels:
+         app: nodejs
+     spec:
+       containers:
+         - name: nodejs-container
+           image: node:19-buster
+           ports:
+           - containerPort: 8081

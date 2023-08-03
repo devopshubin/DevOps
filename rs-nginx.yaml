@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: rs-1
+
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: duo
+  template:
+    metadata:       
+      labels: 
+        app: duo
+    spec:
+      containers:       
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
