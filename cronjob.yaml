@@ -1,0 +1,19 @@
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate: 
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cronjob-container
+            image: busybox:1.28
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Good job!
+          restartPolicy: OnFailure

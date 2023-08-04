@@ -1,0 +1,14 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: busy-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: busy-job-container
+        image: busybox:latest
+        command: ['sh', '-c', 'echo I was here']
+      restartPolicy: Never
+  backoffLimit: 4
