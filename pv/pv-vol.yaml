@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+        name: pv-vol
+spec: 
+  capacity: 
+    storage: 1Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs: 
+    path: /opt/sfw/data
+    server: 10.128.0.2
+    readOnly: false
+
+
+

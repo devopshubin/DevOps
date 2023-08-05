@@ -1,0 +1,4 @@
+NAMESPACE     NAME            ENDPOINTS                                                  AGE
+default       kubernetes      10.128.0.2:6443                                            14h
+default       nginx-service   10.244.2.186:80                                            10m
+kube-system   kube-dns        10.244.0.18:53,10.244.0.19:53,10.244.0.18:53 + 3 more...   14h

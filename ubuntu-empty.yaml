@@ -1,0 +1,16 @@
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: ubuntu-empty
+spec: 
+  containers: 
+  - name: ubuntu-container
+    image: ubuntu:latest
+    command: ["sleep", "123345"]
+    volumeMounts: 
+    - name: ubuntu-volume
+      mountPath: /data
+  volumes:
+  - name: ubuntu-volume
+    emptyDir: {}

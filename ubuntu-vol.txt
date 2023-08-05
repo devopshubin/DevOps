@@ -1,0 +1,59 @@
+Name:             ubuntu-empty
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             node-2/10.128.0.4
+Start Time:       Sat, 05 Aug 2023 10:38:31 +0000
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.2.216
+IPs:
+  IP:  10.244.2.216
+Containers:
+  ubuntu-container:
+    Container ID:  containerd://760b3363febbcbebcfdec97f160086d01b94fb78e037822a36a544944483a97e
+    Image:         ubuntu:latest
+    Image ID:      docker.io/library/ubuntu@sha256:0bced47fffa3361afa981854fcabcd4577cd43cebbb808cea2b1f33a3dd7f508
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sleep
+      123345
+    State:          Running
+      Started:      Sat, 05 Aug 2023 10:38:32 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /data from ubuntu-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-g6rh4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  ubuntu-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  kube-api-access-g6rh4:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  4m50s  default-scheduler  Successfully assigned default/ubuntu-empty to node-2
+  Normal  Pulling    4m50s  kubelet            Pulling image "ubuntu:latest"
+  Normal  Pulled     4m50s  kubelet            Successfully pulled image "ubuntu:latest" in 345.279942ms (345.316336ms including waiting)
+  Normal  Created    4m49s  kubelet            Created container ubuntu-container
+  Normal  Started    4m49s  kubelet            Started container ubuntu-container
