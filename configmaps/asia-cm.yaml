@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: asian-countries
+ 
+data:
+  India: "New Delhi"
+  China: "Beijing"
+  Japan: "Tokyo"
+  Srilanka: "Colombo"
+  SouthKorea: "Seoul"
+

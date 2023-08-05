@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: game-config
+
+data: 
+  enemies: "pyroSlime"
+  enemies.HP: "9999"
+  enemies.ATK: "499"
+  enemies.EM: "999"
+  enemies.pyroResistence: "true"
+  enemies.respawn.period: " 0 0 0 * *"
+  ememies.material: "slimeCondensate"
+
