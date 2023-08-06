@@ -1,0 +1,11 @@
+ 1388  sudo useradd -s /bin/bash newbie
+ 1389  sudo passwd newbie
+ 1390  openssl genrsa -out newbie.key 2048
+ 1391  touch $HOME/ .rnd
+ 1393  openssl req -new -key newbie.key -out newbie.csr -subj "/CN=newbie/O=system-01"
+ 1394  sudo openssl x509 -req -in newbie.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out newbie.crt -days 45
+ 1395  kubectl config set-credentials newbie \ 
+ 1396  kubectl config set-credentials newbie --client-certificate=/home/one_ceru/newbie.crt --client-key=/home/one_ceru/newbie.key
+ 1397  kubectl config set-context newbie-context
+ 1398  kubectl config set-context newbie-context --cluster=kubernetes --namespace=system-01 --user=newbie
+ 1399  kubectl config get-contexts 
