@@ -1,0 +1,28 @@
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: init-web
+  labels: 
+    app: init-web
+spec: 
+  containers: 
+  - name: main-application
+    image: nginx:latest
+    volumeMounts: 
+    - name: nginx-logs
+      mountPath: /var/log/nginx
+  - name: busybox-sidecar
+    image: busybox:latest
+    command: ['sh', '-c', 'while true; do cat /var/log/nginx/access.log; sleep 30; done']
+    volumeMounts: 
+    - name: nginx-logs
+      mountPath: /var/log/nginx
+  volumes: 
+  - name: nginx-logs
+    emptyDir: {}
+
+  initContainers: 
+  - name: busybox-init
+    image: busybox:latest
+    command: ['sh', '-c', 'echo busybox-init started...; sleep 5; echo busybox-init completed.;']

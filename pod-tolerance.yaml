@@ -1,0 +1,26 @@
+# Use this if one of your node is tainted
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deploy-tt
+spec: 
+  replicas: 4
+  selector:
+    matchLabels: 
+      app: tt
+  template: 
+    metadata: 
+      labels: 
+        app: tt
+    spec: 
+      containers: 
+      - name: tt-container
+        image: nginx:latest
+        ports: 
+        - containerPort: 80
+      tolerations: 
+      - key: "app"
+        operator: "Equal"
+        value: "tt"
+        effect: "NoSchedule"

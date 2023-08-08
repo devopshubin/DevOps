@@ -1,0 +1,27 @@
+ 1513  kubectl logs nginx-pv-deployment-644c689645-tm26k 
+ 1514  kubectl get pods --show-labels
+ 1515  kubectl get logs app=guestbook
+ 1516  kubectl get logs -l app=guestbook
+ 1517  kubectl logs -l app=guestbook
+ 1518  kubectl logs nginx-pv-deployment-644c689645-tm26k -c 
+ 1519  kubectl logs nginx-pv-deployment-644c689645-tm26k --since=22h
+ 1520  kubectl logs nginx-pv-deployment-644c689645-tm26k --tail=5
+ 1521  cd 
+ 1522  cd DevOps/troubleshooting/
+ 1523  ls
+ 1524  kubectl logs nginx-pv-deployment-644c689645-tm26k > nginx-pv-deployment-644c689645-tm26k.txt
+ 1525  cat nginx-pv-deployment-644c689645-tm26k.txt 
+ 1526  kubectl get priorityclasses.scheduling.k8s.io 
+ 1527  kubectl get priorityclasses.scheduling.k8s.io --show-namespace
+ 1528  kubectl describe priorityclasses.scheduling.k8s.io system-cluster-critical 
+ 1529  kubectl describe priorityclasses.scheduling.k8s.io system-node-critical 
+ 1530  kubectl get pods --all-namespaces -o custom-
+ 1531  columns='NAME:.metadata.name,PRIORITY:.spec.priorityClassName'
+ 1532  kubectl get pods --all-namespaces -o custom--o custom-
+ 1533  kubectl get pods --all-namespaces -o custom--o custom- -o custom-
+ 1534  kubectl get pods --all-namespaces -o custom-columns='NAME:.metadata.name,PRIORITY:.spec.priorityClassName'
+ 1535  kubectl get pods --all-namespaces -o custom-columns='NAME:.metadata.name,PRIORITY:.spec.priorityClassName' | grep system-cluster-critical > cluster-critical-pods.txt
+ 1536  cat cluster-critical-pods.txt 
+ 1537  kubectl get pods --all-namespaces -o custom-columns='NAME:.metadata.name,PRIORITY:.spec.priorityClassName' | grep system-cluster-critical > cluster-critical-pods.txt
+ 1538  cat cluster-critical-pods.txt 
+ 1539  history

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deploy-01
+spec: 
+  replicas: 5
+  selector: 
+    matchLabels: 
+      app: v1
+  template: 
+    metadata: 
+      labels: 
+        app: v1
+    spec: 
+      containers: 
+      - name: deploy-01-container
+        image: nginx
+        ports: 
+        - containerPort: 80
+      affinity: 
+        nodeAffinity: 
+          requiredDuringSchedulingIgnoredDuringExecution: 
+            nodeSelectorTerms: 
+            - matchExpressions: 
+              - key: kubernetes.io/hostname
+                operator: In
+                values: 
+                - node-1

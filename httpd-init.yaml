@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-init
+  labels:
+    init: busybox 
+ 
+spec:
+  containers:
+  - name: main-httpd
+    image: httpd:latest
+    imagePullPolicy: Always
+    command: ["sleep", "3600"]
+  initContainers:
+  - name: busybox-init
+    image: busybox
+    command: ['sh', '-c', 'echo busybox-init started...; sleep 5;echo busybox-init completed.;']

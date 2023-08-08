@@ -1,0 +1,2 @@
+coredns-5d78c9869d-fmwtt                system-cluster-critical
+coredns-5d78c9869d-zxnb7                system-cluster-critical
