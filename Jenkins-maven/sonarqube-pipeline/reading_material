@@ -1,0 +1,30 @@
+How to go a step forward in DevSecOps
+
+	Analyze
+	Security
+	Verify
+	Monitor
+	Documentation
+
+How to create your DevSecOps Pipeline
+
+	Unit Testing
+	Dependency Scanning
+	Static Code Analysis
+	Dynamic Code Analysis
+	Container Scanning
+	
+
+Common Events
+	Custom code vulnerabilities
+	known vulnerabilities in libraries and frameworks
+	Attacks on custom code vulnerbilities
+	Attacks on libraries and frameworks
+	application inventory with all lib and fw
+	Securee Architecture
+
+Systesm to prevent
+
+	Smart Alerting
+	Security Analysis
+	Centralized security monitoring
