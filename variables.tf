@@ -15,7 +15,7 @@ output "devops_op_trainer" {
 output "aws_ec2_instance" {
   value = var.aws_ec2_object
 }
-practicevm1@practicevm1:~/Day1/terraform-variables$ cat variables.tf
+# practicevm1@practicevm1:~/Day1/terraform-variables$ cat variables.tf
 variable "filename" {
   default = "/home/practicevm1/Day1/terraform-variables/devope_automated.txt"
 }
