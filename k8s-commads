@@ -1,17 +1,15 @@
-sudo kubeadm init --apiserver-advertise-address 10.128.0.2 --pod-network-cidr=10.244.0.0/16
-sudo kubeadm join 10.128.0.2:6443 --token 8yq1fw.5w5yjl1ezr1ecbvp \
- --discovery-token-ca-cert-hash sha256:c48de90c02e04f76c74e0ded53aa97d7669f4a42624338996671c085119cb41a 
+sudo kubeadm init --apiserver-advertise-address 10.128.0.2 --pod-network-cidr=10.244.0.0/16 
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-# Now go to the nodes and run the command which you copied from the console which is similar to this command "sudo kubeadm join 10.128.0.2:6443 --token 8yq1fw.5w5yjl1ezr1ecbvp \
-#  --discovery-token-ca-cert-hash sha256:c48de90c02e04f76c74e0ded53aa97d7669f4a42624338996671c085119cb41a"
+# Now go to other nodes and run the command which will look like the command mentioned below.
+sudo kubeadm join 10.128.0.2:6443 --token 8yq1fw.5w5yjl1ezr1ecbvp \
+             --discovery-token-ca-cert-hash sha256:c48de90c02e04f76c74e0ded53aa97d7669f4a42624338996671c085119cb41a
 kubectl get nodes
 type _init_completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 kubectl get nodes
-kubctl get nodes -o wide
 kubectl get nodes -o wide

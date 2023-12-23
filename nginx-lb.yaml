@@ -2,13 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: nginx-lb
+  name: nginx-np
 spec:
   type: LoadBalancer
-  externalIPs:
-  - 35.209.123.79
   selector: 
-    app: nginx-lb
+    app: nginx
   ports:
   - name:
     protocol: TCP      
